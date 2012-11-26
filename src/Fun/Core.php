@@ -1,6 +1,12 @@
 <?php
+/**
+ * @file
+ * A collection of utility functions, inspired by the Clojure core library
+ *
+ * Note, the parameter item $args indicates a multiple (1 or more) arguments are
+ * accepted.
+ */
 
-namespace Fun\Core;
 
 /**
  * Like the 'and' logical operator but accepting multiple arguments
@@ -20,4 +26,22 @@ function and_all($args)
     }
 
     return end($arg_list);
+}
+
+/**
+ * Applies a function to a collection, as if each collection item were a
+ * separate argument
+ *
+ * For example,
+ *
+ *     apply('and_all', [1, 2, false])
+ *
+ * Is translated into a call to:
+ *
+ *     and_all(1, 2, false)
+ *
+ */
+function apply($f, $args)
+{
+    return call_user_func_array($f, $args);
 }
