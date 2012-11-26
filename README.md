@@ -12,7 +12,7 @@ Functions included
 Note, none of this is fully decided yet; more functions may be included, others
 may be removed. Nobody knows what's going to happen - it's crazy!!!
 
-* and
+* and_all
 * apply
 * assoc
 * comp
@@ -24,41 +24,41 @@ may be removed. Nobody knows what's going to happen - it's crazy!!!
 * distinct
 * drop
 * every
-* every-pred
+* every_pred
 * filter
 * flatten
-* group-by
+* group_by
 * interleave
 * interpose
 * iterate
 * keep
 * map
 * mapcat
-* map-indexed
+* map_indexed
 * max
 * memoize
 * merge
-* merge-with
+* merge_with
 * min
 * nth
 * partial
 * partition
-* partition-all
-* partition-by
+* partition_all
+* partition_by
 * reduce
 * reify (?)
 * rem
 * reverse
 * set
 * some
-* split-at
-* split-with
+* split_at
+* split_with
 * take
-* take-last
-* take-nth
-* take-while
+* take_last
+* take_nth
+* take_while
 * unless
-* update-in
+* update_in
 * zipmap
 
 Tests
@@ -66,7 +66,7 @@ Tests
 
 If you wish to run the tests you need to have
 [PHPUnit](https://github.com/sebastianbergmann/phpunit/) installed. Then, from
-the silex-autolink root directory run:
+the functional-php root directory run:
 
     phpunit
 
