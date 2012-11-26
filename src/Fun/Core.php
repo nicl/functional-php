@@ -35,11 +35,10 @@ function and_all($args)
  * For example,
  *
  *     apply('and_all', [1, 2, false])
+ * =>  and_all(1, 2, false)
  *
- * Is translated into a call to:
- *
- *     and_all(1, 2, false)
- *
+ * @todo implement version which accepts multiple collections (like the Clojure
+ * core version)
  */
 function apply($f, $args)
 {
