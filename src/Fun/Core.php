@@ -3,8 +3,11 @@
  * @file
  * A collection of utility functions, inspired by the Clojure core library
  *
- * Note, the parameter item $args indicates a multiple (1 or more) arguments are
+ * Note, the parameter item '$args' indicates a multiple (1 or more) arguments are
  * accepted.
+ *
+ * The term 'map' denotes any array with meaningful indexes (though note,
+ * functions which accept a $map parameter will in fact work with any array).
  */
 
 
@@ -42,5 +45,35 @@ function and_all($args)
  */
 function apply($f, $args)
 {
-    return call_user_func_array($f, $args);
+    $arg_list = func_get_args();
+    array_shift($arg_list);
+
+    if (1 === count($arg_list)) {
+        return call_user_func_array($f, $args);
+    }
+
+    return call_user_func_array($f, $arg_list);
+}
+
+/**
+ * Maps keys to values and returns this new array appended onto the provided map
+ *
+ * Keys and values should match up (do not provide more values than keys for
+ * example).
+ *
+ * The $kvals parameter indicates that you can provide any number of key-value
+ * pairs.
+ */
+function assoc(array $map, $key, $val, $kvals = null)
+{
+    $arg_list = func_get_args();
+    array_shift($arg_list);
+    $chunked = array_chunk($arg_list, 2);
+
+    foreach ($chunked as $pair) {
+        $pair[1] = isset($pair[1]) ? $pair[1] : null; // for unbalanced case
+        $append[$pair[0]] = $pair[1];
+    }
+
+    return array_merge($map, $append);
 }
