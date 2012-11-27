@@ -10,7 +10,6 @@
  * functions which accept a $map parameter will in fact work with any array).
  */
 
-
 /**
  * Like the 'and' logical operator but accepting multiple arguments
  *
@@ -76,4 +75,30 @@ function assoc(array $map, $key, $val, $kvals = null)
     }
 
     return array_merge($map, $append);
+}
+
+/**
+ * Takes a set of functions and returns a fn that is the composition of those
+ * fns. The returned fn takes a variable number of args, applies the rightmost
+ * of fns to the args, the next fn (right-to-left) to the result, etc.
+ *
+ * So while the first function to be applied can be passed multiple arguments,
+ * further functions will only be passed one argument - the result.
+ */
+function comp($fs)
+{
+    $arg_list = func_get_args();
+    $functions = array_reverse($arg_list);
+    $first = array_shift($functions);
+
+    return function () use ($first, $functions) {
+        $arg_list = func_get_args();
+        $initial = call_user_func_array($first, $arg_list);
+
+        $call = function ($val, $f) {
+            return call_user_func($f, $val);
+        };
+
+        return array_reduce($functions, $call, $initial);
+    };
 }

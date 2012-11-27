@@ -33,4 +33,18 @@ class CoreTest extends PHPUnit_Framework_Testcase
         $this->assertEquals(['a' => 1, 'b' => [2, 3]],
             assoc(['a' => 1], 'b', [2, 3]));
     }
+
+    public function testComp()
+    {
+        $abs_all = function (array $items) {
+            foreach ($items as &$item) {
+                $item = abs($item);
+            }
+
+            return $items;
+        };
+
+        $biggest = comp('max', $abs_all);
+        $this->assertEquals(3, $biggest([1, 2, -3]));
+    }
 }
