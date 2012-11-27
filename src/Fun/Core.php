@@ -102,3 +102,16 @@ function comp($fs)
         return array_reduce($functions, $call, $initial);
     };
 }
+
+/**
+ * Compares two values and returns -1, 0, or 1 if the first is less than, equal
+ * to or greater than the second.
+ */
+function compare($x, $y)
+{
+    if ($x === $y) {
+        return 0;
+    }
+
+    return ($x < $y ? -1 : 1);
+}

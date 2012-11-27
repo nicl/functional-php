@@ -47,4 +47,11 @@ class CoreTest extends PHPUnit_Framework_Testcase
         $biggest = comp('max', $abs_all);
         $this->assertEquals(3, $biggest([1, 2, -3]));
     }
+
+    public function testCompare()
+    {
+        $this->assertEquals(-1, compare(1, 2));
+        $this->assertEquals(0, compare(2, 2));
+        $this->assertEquals(1, compare('c', 'b'));
+    }
 }
