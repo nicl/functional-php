@@ -1,6 +1,9 @@
 functional-php
 ==============
 
+<img src="https://github.com/downloads/nicl/functional-php/functional-php.png"
+ alt="success-kid-php" align="right"/>
+
 A collection of utility functions, inspired (mostly) by Clojure. A few are
 simply wrappers around existing PHP functions. For the most part, however, they
 offer something new. Some functions which appear familiar add value by accepting
