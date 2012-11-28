@@ -21,7 +21,6 @@ may be removed. Nobody knows what's going to happen - it's crazy!!!
 * comp
 * compare
 * complement
-* cond
 * contains
 * dissoc
 * distinct
@@ -66,6 +65,9 @@ may be removed. Nobody knows what's going to happen - it's crazy!!!
 
 Tests
 -----
+
+Functional-PHP needs better tests! All pull requests to improve or add new tests
+are welcome.
 
 If you wish to run the tests you need to have
 [PHPUnit](https://github.com/sebastianbergmann/phpunit/) installed. Then, from
