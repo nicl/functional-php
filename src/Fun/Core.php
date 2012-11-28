@@ -128,3 +128,11 @@ function complement($f)
         return !call_user_func_array($f, $arg_list);
     };
 }
+
+/**
+ * Simple wrapper to check if array item exists matching a given key.
+ */
+function contains($map, $x)
+{
+    return isset($map[$x]);
+}

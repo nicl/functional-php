@@ -63,4 +63,10 @@ class CoreTest extends PHPUnit_Framework_Testcase
         $this->assertTrue($notEmpty("something"));
         $this->assertFalse($notEmpty(""));
     }
+
+    public function testContains()
+    {
+        $this->assertTrue(contains(['a' => 1, 'b' => 2, 'c' => 3], 'b'));
+        $this->assertFalse(contains(['a' => 1, 'b' => 2, 'c' => 3], 'd'));
+    }
 }
