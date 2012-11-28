@@ -116,6 +116,11 @@ function compare($x, $y)
     return ($x < $y ? -1 : 1);
 }
 
+/**
+ * Accepts a predicate function and returns a new function which returns the
+ * boolean opposite of the original (for a given set of inputs). If the function
+ * has side-effects, these still occur.
+ */
 function complement($f)
 {
     return function ($args) use ($f) {
