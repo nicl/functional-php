@@ -115,3 +115,11 @@ function compare($x, $y)
 
     return ($x < $y ? -1 : 1);
 }
+
+function complement($f)
+{
+    return function ($args) use ($f) {
+        $arg_list = func_get_args();
+        return !call_user_func_array($f, $arg_list);
+    };
+}

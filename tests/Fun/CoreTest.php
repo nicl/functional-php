@@ -54,4 +54,13 @@ class CoreTest extends PHPUnit_Framework_Testcase
         $this->assertEquals(0, compare(2, 2));
         $this->assertEquals(1, compare('c', 'b'));
     }
+
+    public function testComplement()
+    {
+        $isEmpty = function ($x) { return empty($x); }; // empty is not callable
+        $notEmpty = complement($isEmpty);
+
+        $this->assertTrue($notEmpty("something"));
+        $this->assertFalse($notEmpty(""));
+    }
 }
