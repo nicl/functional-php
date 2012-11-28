@@ -21,6 +21,7 @@ may be removed. Nobody knows what's going to happen - it's crazy!!!
 * comp
 * compare
 * complement
+* concat
 * contains
 * dissoc
 * distinct

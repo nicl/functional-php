@@ -130,6 +130,21 @@ function complement($f)
 }
 
 /**
+ * Concatenates collections together
+ *
+ * The parameter $args indicates a variable number of collection arguments.
+ *
+ * When two or more arrays have the same non-numeric key, the last (rightmost)
+ * value is taken.
+ */
+function concat($args)
+{
+    $arg_list = func_get_args();
+
+    return array_reduce($arg_list, 'array_merge', []);
+}
+
+/**
  * Simple wrapper to check if array item exists matching a given key.
  */
 function contains($map, $x)
